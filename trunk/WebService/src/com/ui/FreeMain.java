@@ -10,8 +10,13 @@ import java.awt.SystemTray;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowStateListener;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -28,6 +33,19 @@ public class FreeMain {
 	private static final String title = "免费工具";
 	private static final String icon = "011906654.gif";
 	private static boolean isSupported = false;
+	
+	private static final Logger LOGGER = Logger.getLogger(FreeMain.class.getName());
+	
+	static{
+		try {
+			FileHandler fileHandler = new FileHandler("FreeMain.log", 0, 1, true);
+			fileHandler.setFormatter(new SimpleFormatter());
+			fileHandler.setLevel(Level.INFO);
+			LOGGER.addHandler(fileHandler);
+		} catch (Throwable e) {
+			LOGGER.severe("配置日志文件错误\n" + e);
+		}
+	}
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -37,10 +55,18 @@ public class FreeMain {
 			        javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 			    }
 			    catch (Exception ex)  {
-			    	ex.printStackTrace();
+			    	LOGGER.warning("加载皮肤错误.\n" + ex);
 			    }
 				
-				showFreeFrame();
+				try {
+					showFreeFrame();
+					
+					LOGGER.info("系统启动成功.");
+				} catch (Throwable e) {
+					LOGGER.severe("系统启动错误.\n" + e);
+					System.exit(-1);
+				}
+				
 			}
 		});
 	}
@@ -65,6 +91,13 @@ public class FreeMain {
 					freeFrame.setVisible(false);
 			}
 		});
+		
+		freeFrame.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				LOGGER.info("系统正常关闭.");
+			}
+		});
 
 		freeFrame.setVisible(true);
 
@@ -75,7 +108,7 @@ public class FreeMain {
 				isSupported = true;
 			} catch (Exception e) {
 				isSupported = false;
-				e.printStackTrace();
+				LOGGER.warning("显示系统托盘错误.\n" + e);
 			}
 	}
 
@@ -93,6 +126,7 @@ public class FreeMain {
 		exitItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				LOGGER.info("系统正常关闭.");
 				System.exit(0);
 			}
 		});
