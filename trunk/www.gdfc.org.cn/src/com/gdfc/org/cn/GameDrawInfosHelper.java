@@ -4,14 +4,17 @@
 package com.gdfc.org.cn;
 
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import net.sf.json.JSONSerializer;
+import net.sf.json.JsonConfig;
 
 /**
  * 福彩开奖号码工具类
@@ -37,8 +40,15 @@ public class GameDrawInfosHelper {
 		// 解析成GameDrawInfo对象
 		List<GameDrawInfo> gameDrawInfos = toDrawInfos(response);
 		
+		String results = gameDrawInfos.toString();
+		
 		// 打印
-		System.out.println(gameDrawInfos);
+		System.out.println(results);
+		
+		OutputStream stream = new FileOutputStream("彩票开奖信息.txt");
+		stream.write(results.getBytes());
+		stream.close();
+		
 	}
 	
 	private static String doGet() throws IOException{
@@ -72,46 +82,15 @@ public class GameDrawInfosHelper {
 		
 	}
 	
+	@SuppressWarnings("unchecked")
 	private static List<GameDrawInfo> toDrawInfos(String message) {
-		// var gameDrawInfos = [{"rollNext":11028021,"drawID":1578,"playTime":"周一至周日 21:54","luckyNo":"01040715242617","gameID":1,"drawName":"2009308"},{"rollNext":0,"drawID":1155,"playTime":"周二、周四、周日 21:54","luckyNo":"0210141523","gameID":2,"drawName":"2009132"},{"rollNext":68350516,"drawID":2009132,"playTime":"周二、周四、周日 20:45","luckyNo":"04141521233007","gameID":5,"drawName":"2009132"},{"rollNext":0,"drawID":2009308,"playTime":"周一至周日 20:30","luckyNo":" 0 3 0","gameID":6,"drawName":"2009308"},{"rollNext":4041787,"drawID":2009066,"playTime":"周二、周五 20:08","luckyNo":"0304081012163231","gameID":7,"drawName":"2009066"},{"rollNext":0,"drawID":1578,"playTime":"周一至周日 21:54","luckyNo":"17 龙 夏 东","gameID":8,"drawName":"2009308"}];
-		final List<GameDrawInfo> gameDrawInfos = new ArrayList<GameDrawInfo>();
-		final Pattern pattern = Pattern.compile(".*(\\{.*\\}),(\\{.*\\}),(\\{.*\\}),(\\{.*\\}),(\\{.*\\}),(\\{.*\\}).*");
-		final Matcher matcher = pattern.matcher(message);
-
-		// 匹配不成功
-		if(!matcher.matches())
-			return gameDrawInfos;
+		message = message.substring(message.indexOf("["), message.lastIndexOf("]")+1);
 		
-		final int groupCount = matcher.groupCount();
-		for (int i = 1; i <= groupCount; i++) {
-			String record = matcher.group(i);
-			// 清除中括号([])和双引号("")
-			record = record.substring(1, record.length() - 1).replace("\"", "");
-			// rollNext:0,drawID:1578,playTime:周一至周日 21:54,luckyNo:17 龙 夏 东,gameID:8,drawName:2009308
-			String[] fields = record.split("\\,");
-			
-			final GameDrawInfo drawInfo = new GameDrawInfo();
-			for (String fs : fields) {
-				final String[] field = fs.split("\\:");
-				if(field[0].equals("rollNext")){
-					drawInfo.setRollNext(field[1]);
-				} else if(field[0].equals("drawID")){
-					drawInfo.setDrawID(field[1]);
-				} else if(field[0].equals("playTime")){
-					drawInfo.setPlayTime(field[1]);
-				} else if(field[0].equals("luckyNo")){
-					drawInfo.setLuckyNo(field[1]);
-				} else if(field[0].equals("gameID")){
-					drawInfo.setGameID(field[1]);
-				} else if(field[0].equals("drawName")){
-					drawInfo.setDrawName(field[1]);
-				} 
-			}
-			
-			gameDrawInfos.add(drawInfo);
-		}
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.setRootClass(GameDrawInfo.class);
+		Object object = JSONSerializer.toJava(JSONSerializer.toJSON(message),jsonConfig);
 		
-		return gameDrawInfos;
+		return (List<GameDrawInfo>) object;
 	}
 
 }
