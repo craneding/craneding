@@ -70,7 +70,7 @@ public class GameDrawInfo {
 	 */
 
 	/**
-	 * 下次开奖时间
+	 * 滚入下期
 	 */
 	private String rollNext;
 	/**
@@ -153,7 +153,7 @@ public class GameDrawInfo {
 			.append(nextLine).append(" 彩票期名:").append(drawName)
 			.append(nextLine).append(" 开奖号码:").append(LuckeyNoArrays())
 			.append(nextLine).append(" 开奖周期:").append(playTime)
-			.append(nextLine).append(" 下期时间:").append(rollNext)
+			.append(nextLine).append(" 滚入下期:").append(rollNext)
 			.append(nextLine).append("-------------------------")
 			;
 		
