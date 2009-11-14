@@ -7,7 +7,7 @@
 	<classpathentry kind="lib" path="lib/hibernate-annotations.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-commons-annotations.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-core.jar"/>
-	<classpathentry kind="lib" path="lib/msql/mysql-connector-java-5.1.10-bin.jar"/>
+	<classpathentry kind="lib" path="lib/msql/mysql-connector-java-5.1.10-bin.jar" sourcepath="lib/msql/mysql-connector-java-5.1.10-bin.src.zip"/>
 	<classpathentry kind="lib" path="lib/other/dom4j.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j/log4j.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j/slf4j-api.jar"/>
