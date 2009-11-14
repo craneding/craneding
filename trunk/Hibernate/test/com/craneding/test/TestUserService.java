@@ -3,7 +3,7 @@
  */
 package com.craneding.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
@@ -75,12 +75,12 @@ public class TestUserService {
 	@Test
 	public void testSaveUser() {
 		final User user = new User();
-		user.setName("crane.ding");
-		user.setEmail("crane.ding@163.com");
+		user.setName("X-Man");
+		user.setEmail("test@test.com");
 		user.setPassword("11111111");
-		user.setQq("360888719");
-		user.setTelephone("15818160426");
-		user.setAddress("ÌÄÑÅÔ·");
+		user.setQq("10000");
+		user.setTelephone("13800138000");
+		user.setAddress("ÔİÎŞ");
 		
 		userDao.saveUser(user);
 	}
