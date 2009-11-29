@@ -1,0 +1,128 @@
+11-28 23:21:37 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+drop table user [42102-124]
+11-28 23:22:10 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "IF[*] USER EXISTS DROP TABLE USER "; expected "INSERT, {"; SQL statement:
+if user exists drop table user [42001-124]
+11-28 23:22:35 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "IF[*] EXISTS DROP TABLE USER "; expected "INSERT, {"; SQL statement:
+if exists drop table user [42001-124]
+11-28 23:24:52 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE USER IF EXISTS USER[*] "; SQL statement:
+drop table user if exists user [42000-124]
+11-29 16:35:46 jdbc[3]: SQLException
+org.h2.jdbc.JdbcSQLException: Invalid value "0" for parameter "columnIndex" [90008-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getInvalidValueException(Message.java:178)
+	at org.h2.jdbc.JdbcResultSet.checkColumnIndex(JdbcResultSet.java:2993)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3021)
+	at org.h2.jdbc.JdbcResultSet.getObject(JdbcResultSet.java:460)
+	at com.craneding.h2.jdbc.EasyBean.select(EasyBean.java:80)
+	at com.craneding.h2.H2Demo$1.execute(H2Demo.java:143)
+	at com.craneding.h2.jdbc.EasyBean.transaction(EasyBean.java:49)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:139)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:90)
+11-29 16:35:46 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:33)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:138)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:90)
+11-29 16:36:46 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:33)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:138)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:90)
+11-29 16:52:46 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:36)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:138)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:90)
+11-29 17:16:06 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:49)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:143)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:92)
+11-29 17:17:22 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:49)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:143)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:92)
+11-29 17:23:36 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:49)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:143)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:92)
+11-29 17:23:56 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:49)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:143)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:92)
+11-29 17:25:16 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:49)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:143)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:92)
+11-29 17:47:10 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:31)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:149)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:93)
+11-29 17:48:26 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:31)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:149)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:93)
+11-29 18:06:42 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Value too long for column "USERNAME VARCHAR2(25) NOT NULL": "'crane.ding@qq.com---------------------------------------------------------------------------------------------------' (116)"; SQL statement:
+insert into user values(6,'crane.ding@qq.com---------------------------------------------------------------------------------------------------') [90005-124]
