@@ -15,13 +15,18 @@ public class Canvasdemo implements EntryPoint {
 		CanvasPanel canvasPanel = new CanvasPanel();
 		final CanvasContext context = canvasPanel.getContext2D();
 		
-		context.drawImage("../images/backdrop.png", 0, 0);
-		context.beginPath();
-		context.moveTo(30, 96);
-		context.lineTo(70, 66);
-		context.lineTo(103, 76);
-		context.lineTo(170, 15);
-		context.stroke();
+		context.drawImage("../images/backdrop.png", 0, 0, new CanvasContextCallback() {
+			@Override
+			public void onSuccess() {
+				context.beginPath();
+				context.moveTo(30, 96);
+				context.lineTo(70, 66);
+				context.lineTo(103, 76);
+				context.lineTo(170, 15);
+				context.stroke();
+			}
+		});
+		
 		return canvasPanel;
 	}
 

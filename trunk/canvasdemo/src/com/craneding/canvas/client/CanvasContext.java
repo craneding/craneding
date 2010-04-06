@@ -49,10 +49,14 @@ public class CanvasContext extends Element {
 		return this;
 	}-*/;
 
-	public final native CanvasContext drawImage(String src, int x, int y) /*-{
+	public final native CanvasContext drawImage(String src, int x, int y, final CanvasContextCallback callback) /*-{
+		var _ctx = this;
 		var img = new Image();
 		img.src = src;
-		this.drawImage(img, x, y);
+		img.onload = function() {
+			_ctx.drawImage(img, x, y);
+			callback.onSuccess();
+		}
 		return this;
 	}-*/;
 
