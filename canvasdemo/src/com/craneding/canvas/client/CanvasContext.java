@@ -49,14 +49,16 @@ public class CanvasContext extends Element {
 		return this;
 	}-*/;
 
-	public final native CanvasContext drawImage(String src, int x, int y, final CanvasContextCallback callback) /*-{
+	public final native CanvasContext drawImage(String src, int x, int y,
+			final CanvasContextCallback callback) /*-{
 		var _ctx = this;
 		var img = new Image();
 		img.src = src;
-		img.onload = function() {
+		img.onload = function() { 
 			_ctx.drawImage(img, x, y);
-			callback.onSuccess();
-		}
+			callback.@com.craneding.canvas.client.CanvasContextCallback::onSuccess()(); 
+			}
+
 		return this;
 	}-*/;
 
@@ -65,4 +67,8 @@ public class CanvasContext extends Element {
 		return this;
 	}-*/;
 
+	public final native CanvasContext clearRect(int x, int y, int w, int h) /*-{
+		this.clearRect(x, y, w, h);
+		return this;
+	}-*/;
 }

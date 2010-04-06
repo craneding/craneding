@@ -46,7 +46,7 @@ public class Canvasdemo implements EntryPoint {
 		context.strokeRect(60, 60, 55, 50);
 
 		// Clears the specified area and makes it fully transparent
-		//ctx.clearRect(350, 200, 55, 50);
+		//context.clearRect(25, 25, 55, 50);
 
 		context.fillStyle("rgb(200,0,0)");
 		context.beginPath();
