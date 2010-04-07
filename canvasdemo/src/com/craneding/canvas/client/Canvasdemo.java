@@ -2,6 +2,7 @@ package com.craneding.canvas.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.Widget;
 
 public class Canvasdemo implements EntryPoint {
 
@@ -9,15 +10,42 @@ public class Canvasdemo implements EntryPoint {
 		RootPanel.get().add(draw());
 		
 		RootPanel.get().add(drawImage());
+		
+		RootPanel.get().add(drawthegoneheart());
+	}
+
+	private Widget drawthegoneheart() {
+		CanvasPanel canvasPanel = new CanvasPanel();
+		final CanvasContext context = canvasPanel.getContext2D();
+		
+		context.beginPath();
+		context.arc(75, 75, 50, 0, (Math.PI * 2), true); // Outer circle
+		context.moveTo(110, 75);
+		context.arc(75, 75, 35, 0, Math.PI, false); // Mouth (clockwise)
+		context.moveTo(65, 65);
+		context.arc(60, 65, 5, 0, (Math.PI * 2), true); // Left eye
+		context.moveTo(95, 65);
+		context.arc(90, 65, 5, 0, (Math.PI * 2), true); // Right eye
+		context.stroke();
+					
+		context.beginPath();
+		context.moveTo(40, 75);
+		context.lineTo(60, 65);
+		context.lineTo(90, 65);
+		context.moveTo(110, 75);
+		context.lineTo(125, 75);
+		context.stroke();
+		
+		return canvasPanel;
 	}
 
 	private CanvasPanel drawImage() {
 		CanvasPanel canvasPanel = new CanvasPanel();
 		final CanvasContext context = canvasPanel.getContext2D();
 		
-		context.drawImage("../images/backdrop.png", 0, 0, new CanvasContextCallback() {
+		context.drawImage(new CanvasImage("../images/backdrop.png", 0, 0) {
 			@Override
-			public void onSuccess() {
+			void onSuccess() {
 				context.beginPath();
 				context.moveTo(30, 96);
 				context.lineTo(70, 66);
