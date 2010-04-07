@@ -1,6 +1,8 @@
 package com.craneding.canvas.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.dom.client.MouseMoveEvent;
+import com.google.gwt.event.dom.client.MouseMoveHandler;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -15,7 +17,7 @@ public class Canvasdemo implements EntryPoint {
 	}
 
 	private Widget drawthegoneheart() {
-		CanvasPanel canvasPanel = new CanvasPanel();
+		final CanvasPanel canvasPanel = new CanvasPanel();
 		final CanvasContext context = canvasPanel.getContext2D();
 		
 		context.beginPath();
@@ -35,6 +37,19 @@ public class Canvasdemo implements EntryPoint {
 		context.moveTo(110, 75);
 		context.lineTo(125, 75);
 		context.stroke();
+		
+		canvasPanel.addMouseMoveHandler(new MouseMoveHandler() {
+			int x = 0, y = 0;
+			@Override
+			public void onMouseMove(MouseMoveEvent event) {
+				context.beginPath();
+				context.moveTo(x, y);
+				x = event.getRelativeX(canvasPanel.getElement());
+				y = event.getRelativeY(canvasPanel.getElement());
+				context.lineTo(x, y);
+				context.stroke();
+			}
+		});
 		
 		return canvasPanel;
 	}
