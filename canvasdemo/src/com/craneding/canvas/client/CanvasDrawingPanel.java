@@ -35,6 +35,32 @@ public class CanvasDrawingPanel extends DialogBox implements MouseDownHandler,
 		canvasPanel.addMouseUpHandler(this);
 		canvasPanel.addMouseOutHandler(this);
 	}
+	
+	@Override
+	public void show() {
+		super.show();
+		drawHell();
+	}
+	
+	void drawHell() {
+		ctx.beginPath();
+		ctx.arc(75, 75, 50, 0, (Math.PI * 2), true); // Outer circle
+		ctx.moveTo(110, 75);
+		ctx.arc(75, 75, 35, 0, Math.PI, false); // Mouth (clockwise)
+		ctx.moveTo(65, 65);
+		ctx.arc(60, 65, 5, 0, (Math.PI * 2), true); // Left eye
+		ctx.moveTo(95, 65);
+		ctx.arc(90, 65, 5, 0, (Math.PI * 2), true); // Right eye
+		ctx.stroke();
+					
+		ctx.beginPath();
+		ctx.moveTo(40, 75);
+		ctx.lineTo(60, 65);
+		ctx.lineTo(90, 65);
+		ctx.moveTo(110, 75);
+		ctx.lineTo(125, 75);
+		ctx.stroke();
+	}
 
 	@Override
 	public void setSize(String width, String height) {
