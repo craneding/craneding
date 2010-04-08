@@ -3,20 +3,26 @@ package com.craneding.canvas.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.MouseMoveHandler;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class Canvasdemo implements EntryPoint {
 
 	public void onModuleLoad() {
-		RootPanel.get().add(draw());
+//		RootPanel.get().add(draw());
+//		
+//		RootPanel.get().add(drawImage());
+//		
+//		RootPanel.get().add(drawthegoneheart());
 		
-		RootPanel.get().add(drawImage());
+		CanvasDrawingPanel drawingPanel = new CanvasDrawingPanel();
 		
-		RootPanel.get().add(drawthegoneheart());
+		drawingPanel.setText("ç”»å›¾");
+		drawingPanel.setSize("732px", "500px");
+		drawingPanel.setPopupPosition(147, 29);
+		drawingPanel.show();
 	}
 
-	private Widget drawthegoneheart() {
+	Widget drawthegoneheart() {
 		final CanvasPanel canvasPanel = new CanvasPanel();
 		final CanvasContext context = canvasPanel.getContext2D();
 		
@@ -54,7 +60,7 @@ public class Canvasdemo implements EntryPoint {
 		return canvasPanel;
 	}
 
-	private CanvasPanel drawImage() {
+	CanvasPanel drawImage() {
 		CanvasPanel canvasPanel = new CanvasPanel();
 		final CanvasContext context = canvasPanel.getContext2D();
 		
@@ -73,7 +79,7 @@ public class Canvasdemo implements EntryPoint {
 		return canvasPanel;
 	}
 
-	private CanvasPanel draw() {
+	CanvasPanel draw() {
 		CanvasPanel canvasPanel = new CanvasPanel();
 		
 		CanvasContext context = canvasPanel.getContext2D();
@@ -81,7 +87,7 @@ public class Canvasdemo implements EntryPoint {
 		context.fillRect(0, 0, 55, 50);
 		
 		// Draws a filled rectangle
-		context.fillStyle("rgba(0, 0, 200, 0.5)");// Í¸Ã÷¶È
+		context.fillStyle("rgba(0, 0, 200, 0.5)");//
 		context.fillRect(30, 30, 55, 50);
 
 		// Draws a rectangular outline
