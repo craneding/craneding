@@ -4,7 +4,7 @@
 package com.craneding.canvas.client;
 
 /**
- * @author ∂°∂°
+ * @author ‰∏Å‰∏Å
  * 
  */
 public abstract class CanvasImage {

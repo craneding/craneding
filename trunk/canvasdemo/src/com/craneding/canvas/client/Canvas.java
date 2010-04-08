@@ -6,7 +6,7 @@ package com.craneding.canvas.client;
 import com.google.gwt.user.client.Element;
 
 /**
- * @author ∂°∂°
+ * @author ‰∏Å‰∏Å
  * 
  */
 public class Canvas extends Element {

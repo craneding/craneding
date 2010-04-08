@@ -1,5 +1,9 @@
 /** Add css rules here for your application. */
 
+BODY {
+	background: #090909;
+}
+
 
 /** Example rules used by the template application (remove for your app) */
 h1 {
@@ -31,4 +35,22 @@ h1 {
 /** Set ids using widget.getElement().setId("idOfElement") */
 #closeButton {
   margin: 15px 6px 6px;
+}
+
+.Canvas-DrawingPanel {
+	border: 1px black dashed;
+}
+
+.Canvas-DrawingPanel .Caption {
+	height:20px;
+	cursor:move;
+	color:#BBBBBB;
+	font-weight:bold;
+	text-align:center;
+	background: url("images/win_MT.png") -10px;
+}
+
+.Canvas-DrawingPanel .dialogContent {
+	background: white;
+	cursor: crosshair;
 }

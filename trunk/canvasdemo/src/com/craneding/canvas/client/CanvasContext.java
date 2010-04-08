@@ -6,7 +6,7 @@ package com.craneding.canvas.client;
 import com.google.gwt.user.client.Element;
 
 /**
- * @author ¶¡¶¡
+ * @author ä¸ä¸
  * 
  */
 public class CanvasContext extends Element {
@@ -36,7 +36,7 @@ public class CanvasContext extends Element {
 	}-*/;
 
 	/**
-	 * ´´½¨Ò»¸öÂ·¾¶
+	 * åˆ›å»ºä¸€ä¸ªè·¯å¾„
 	 */
 	public final native CanvasContext beginPath() /*-{
 		this.beginPath();
@@ -44,7 +44,7 @@ public class CanvasContext extends Element {
 	}-*/;
 	
 	/**
-	 * ¹Ø±ÕÂ·¾¶
+	 * å…³é—­è·¯å¾„
 	 */
 	public final native CanvasContext closePath() /*-{
 		this.closePath();
@@ -57,7 +57,7 @@ public class CanvasContext extends Element {
 	}-*/;
 
 	/**
-	 * »æÖÆ¸÷ÖÖÏßÌõ Lines
+	 * ç»˜åˆ¶å„ç§çº¿æ¡ Lines
 	 */
 	public final native CanvasContext lineTo(int x, int y) /*-{
 		this.lineTo(x, y);
@@ -65,8 +65,8 @@ public class CanvasContext extends Element {
 	}-*/;
 
 	/**
-	 * Ìî³ä³öÒ»¸öÊµĞÄÍ¼ĞÎ
-	 * ×¢Òâ£ºµ±µ÷ÓÃ fill Ê±£¬¿ª·ÅµÄÂ·¾¶»á×Ô¶¯±ÕºÏ£¬¶øÎŞĞëµ÷ÓÃ closePath 
+	 * å¡«å……å‡ºä¸€ä¸ªå®å¿ƒå›¾å½¢
+	 * æ³¨æ„ï¼šå½“è°ƒç”¨ fill æ—¶ï¼Œå¼€æ”¾çš„è·¯å¾„ä¼šè‡ªåŠ¨é—­åˆï¼Œè€Œæ— é¡»è°ƒç”¨ closePath 
 	 */
 	public final native CanvasContext fill() /*-{
 		this.fill();
@@ -85,7 +85,7 @@ public class CanvasContext extends Element {
 	}-*/;
 	
 	/**
-	 * Ëõ·Å
+	 * ç¼©æ”¾
 	 */
 	public final native CanvasContext drawImage(final CanvasImage ci, int width, int height) /*-{
 		var _ctx = this;
@@ -99,7 +99,7 @@ public class CanvasContext extends Element {
 	}-*/;
 	
 	/**
-	 * »æÖÆÍ¼ĞÎµÄ±ß¿ò
+	 * ç»˜åˆ¶å›¾å½¢çš„è¾¹æ¡†
 	 */
 	public final native CanvasContext stroke() /*-{
 		this.stroke();
@@ -115,13 +115,13 @@ public class CanvasContext extends Element {
 	}-*/;
 
 	/**
-	 * »æÖÆ»¡Ïß»òÔ²
-	 * @param x Ô²ĞÄ×ø±ê
-	 * @param y Ô²ĞÄ×ø±ê
-	 * @param radius ÊÇ°ë¾¶
-	 * @param startAngle Æğ»¡¶È£¨ÒÔ x ÖáÎª»ù×¼£©
-	 * @param endAngle Ä©»¡¶È£¨ÒÔ x ÖáÎª»ù×¼£©
-	 * @param anticlockwise true ±íÊ¾ÄæÊ±Õë£¬·´Ö®Ë³Ê±Õë
+	 * ç»˜åˆ¶å¼§çº¿æˆ–åœ†
+	 * @param x åœ†å¿ƒåæ ‡
+	 * @param y åœ†å¿ƒåæ ‡
+	 * @param radius æ˜¯åŠå¾„
+	 * @param startAngle èµ·å¼§åº¦ï¼ˆä»¥ x è½´ä¸ºåŸºå‡†ï¼‰
+	 * @param endAngle æœ«å¼§åº¦ï¼ˆä»¥ x è½´ä¸ºåŸºå‡†ï¼‰
+	 * @param anticlockwise true è¡¨ç¤ºé€†æ—¶é’ˆï¼Œåä¹‹é¡ºæ—¶é’ˆ
 	 */
 	public final native CanvasContext arc(int x, int y, int radius, int startAngle, double endAngle, boolean anticlockwise) /*-{
 		this.arc(x, y, radius, startAngle, endAngle, anticlockwise);
@@ -129,11 +129,11 @@ public class CanvasContext extends Element {
 	}-*/;
 	
 	/**
-	 * ±´Èû¶ûÇúÏß
-	 * @param cp1x µÚÒ»¸ö¿ØÖÆµãµÄ×ø±ê
-	 * @param cp1y µÚÒ»¸ö¿ØÖÆµãµÄ×ø±ê
-	 * @param x ÖÕµã×ø±ê
-	 * @param y ÖÕµã×ø±ê
+	 * è´å¡å°”æ›²çº¿
+	 * @param cp1x ç¬¬ä¸€ä¸ªæ§åˆ¶ç‚¹çš„åæ ‡
+	 * @param cp1y ç¬¬ä¸€ä¸ªæ§åˆ¶ç‚¹çš„åæ ‡
+	 * @param x ç»ˆç‚¹åæ ‡
+	 * @param y ç»ˆç‚¹åæ ‡
 	 */
 	public final native CanvasContext quadraticCurveTo(int cp1x, int cp1y, int x, int y) /*-{
 		this.quadraticCurveTo(cp1x, cp1y, x, y);
@@ -141,13 +141,13 @@ public class CanvasContext extends Element {
 	}-*/;
 	
 	/**
-	 * ±´Èû¶ûÇúÏß
-	 * @param cp1x µÚÒ»¸ö¿ØÖÆµãµÄ×ø±ê
-	 * @param cp1y µÚÒ»¸ö¿ØÖÆµãµÄ×ø±ê
-	 * @param cp2x µÚ¶ş¸ö¿ØÖÆµãµÄ×ø±ê
-	 * @param cp2y µÚ¶ş¸ö¿ØÖÆµãµÄ×ø±ê
-	 * @param x ÖÕµã×ø±ê
-	 * @param y ÖÕµã×ø±ê
+	 * è´å¡å°”æ›²çº¿
+	 * @param cp1x ç¬¬ä¸€ä¸ªæ§åˆ¶ç‚¹çš„åæ ‡
+	 * @param cp1y ç¬¬ä¸€ä¸ªæ§åˆ¶ç‚¹çš„åæ ‡
+	 * @param cp2x ç¬¬äºŒä¸ªæ§åˆ¶ç‚¹çš„åæ ‡
+	 * @param cp2y ç¬¬äºŒä¸ªæ§åˆ¶ç‚¹çš„åæ ‡
+	 * @param x ç»ˆç‚¹åæ ‡
+	 * @param y ç»ˆç‚¹åæ ‡
 	 */
 	public final native CanvasContext bezierCurveTo(int cp1x, int cp1y, int cp2x, int cp2y, int x, int y) /*-{
 		this.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
@@ -155,14 +155,24 @@ public class CanvasContext extends Element {
 	}-*/;
 
 	/**
-	 * ¾ØĞÎÂ·¾¶
-	 * @param x ×óÉÏ½Ç×ø±ê
-	 * @param y ×óÉÏ½Ç×ø±ê
-	 * @param width ¿í
-	 * @param height ¸ß
+	 * çŸ©å½¢è·¯å¾„
+	 * @param x å·¦ä¸Šè§’åæ ‡
+	 * @param y å·¦ä¸Šè§’åæ ‡
+	 * @param width å®½
+	 * @param height é«˜
 	 */
 	public final native CanvasContext rect(int x, int y, int width, int height) /*-{
 		this.rect(x, y, width, height);
+		return this;
+	}-*/;
+
+	public final native CanvasContext strokeStyle(String clor) /*-{
+		this.strokeStyle = clor;
+		return this;
+	}-*/;
+
+	public final native CanvasContext lineWidth(int w) /*-{
+		this.lineWidth = w;
 		return this;
 	}-*/;
 }

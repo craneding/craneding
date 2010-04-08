@@ -19,7 +19,7 @@ import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * @author ∂°∂°
+ * @author ‰∏Å‰∏Å
  * 
  */
 public class CanvasPanel extends Widget {
@@ -42,7 +42,7 @@ public class CanvasPanel extends Widget {
 		addDomHandler(overHandler, MouseOverEvent.getType());
 	}
 	
-	public void addMouseOverHandler(MouseOutHandler outHandler){
+	public void addMouseOutHandler(MouseOutHandler outHandler){
 		addDomHandler(outHandler, MouseOutEvent.getType());
 	}
 	
