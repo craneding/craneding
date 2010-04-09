@@ -18,8 +18,7 @@ public class Canvasdemo implements EntryPoint {
 		
 		drawingPanel.setText("画图");
 		drawingPanel.setSize("732px", "500px");
-		drawingPanel.setPopupPosition(147, 29);
-		drawingPanel.show();
+		drawingPanel.center();
 	}
 
 	Widget drawthegoneheart() {
