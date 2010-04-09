@@ -166,8 +166,8 @@ public class CanvasContext extends Element {
 		return this;
 	}-*/;
 
-	public final native CanvasContext strokeStyle(String clor) /*-{
-		this.strokeStyle = clor;
+	public final native CanvasContext strokeStyle(String color) /*-{
+		this.strokeStyle = color;
 		return this;
 	}-*/;
 

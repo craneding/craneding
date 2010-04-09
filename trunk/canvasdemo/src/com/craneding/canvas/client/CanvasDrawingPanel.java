@@ -3,6 +3,8 @@
  */
 package com.craneding.canvas.client;
 
+import com.craneding.canvas.client.drawtools.BrushCanvas;
+import com.craneding.canvas.client.drawtools.RectangleCanvas;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
@@ -22,6 +24,9 @@ public class CanvasDrawingPanel extends DialogBox implements MouseDownHandler,
 
 	final CanvasPanel canvasPanel = new CanvasPanel();
 	final CanvasContext ctx = canvasPanel.getContext2D();
+	final BrushCanvas penCanvas = new BrushCanvas(ctx);
+	final RectangleCanvas rectangleCanvas = new RectangleCanvas(ctx);
+	
 	boolean down = false;
 	int x_s = 0;
 	int y_s = 0;
@@ -73,21 +78,21 @@ public class CanvasDrawingPanel extends DialogBox implements MouseDownHandler,
 			down = true;
 			x_s = event.getRelativeX(canvasPanel.getElement());
 			y_s = event.getRelativeY(canvasPanel.getElement());
+			rectangleCanvas.init(x_s, y_s);
 		}
 	}
-
+	
 	@Override
 	public void onMouseMove(MouseMoveEvent event) {
 		if (event.getSource() == canvasPanel && down) {
-
-			ctx.strokeStyle("black");
-			ctx.lineWidth(10);
-			ctx.beginPath();
-			ctx.moveTo(x_s, y_s);
-			x_s = event.getRelativeX(canvasPanel.getElement());
-			y_s = event.getRelativeY(canvasPanel.getElement());
-			ctx.lineTo(x_s, y_s);
-			ctx.stroke();
+			int x_e = event.getRelativeX(canvasPanel.getElement());
+			int y_e = event.getRelativeY(canvasPanel.getElement());
+			
+			//penCanvas.Color("orange").LineWidth(10).draw(x_s, y_s, x_e, y_e);
+			rectangleCanvas.draw(x_e, y_e);
+			
+			x_s = x_e;
+			y_s = y_e;
 		}
 	}
 
@@ -95,6 +100,7 @@ public class CanvasDrawingPanel extends DialogBox implements MouseDownHandler,
 	public void onMouseUp(MouseUpEvent event) {
 		if(event.getSource() == canvasPanel) {
 			down = false;
+			rectangleCanvas.clear();
 		}
 	}
 
@@ -102,6 +108,7 @@ public class CanvasDrawingPanel extends DialogBox implements MouseDownHandler,
 	public void onMouseOut(MouseOutEvent event) {
 		if(event.getSource() == canvasPanel) {
 			down = false;
+			rectangleCanvas.clear();
 		}
 	}
 
