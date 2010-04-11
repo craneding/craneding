@@ -4,6 +4,13 @@
 package com.craneding.canvas.client;
 
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.dom.client.KeyDownEvent;
+import com.google.gwt.event.dom.client.KeyDownHandler;
+import com.google.gwt.event.dom.client.KeyPressEvent;
+import com.google.gwt.event.dom.client.KeyPressHandler;
+import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
@@ -24,10 +31,13 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public class CanvasPanel extends Widget {
 	
+	public CanvasPanel(Element elem) {
+		setElement(elem);
+		sinkEvents(Event.MOUSEEVENTS | Event.KEYEVENTS);
+	}
+	
 	public CanvasPanel() {
-		setElement(Document.get().createElement("canvas"));
-		
-		sinkEvents(Event.MOUSEEVENTS);
+		this(Document.get().createElement("canvas"));
 	}
 	
 	public void addMouseDownHandler(MouseDownHandler downHandler){
@@ -48,6 +58,18 @@ public class CanvasPanel extends Widget {
 	
 	public void addMouseMoveHandler(MouseMoveHandler moveHandler){
 		addDomHandler(moveHandler, MouseMoveEvent.getType());
+	}
+	
+	public void addKeyPressHandler(KeyPressHandler keyPressHandler) {
+		addDomHandler(keyPressHandler, KeyPressEvent.getType());
+	}
+	
+	public void addKeyUpHandler(KeyUpHandler keyUpHandler) {
+		addDomHandler(keyUpHandler, KeyUpEvent.getType());
+	}
+	
+	public void addKeyDownHandler(KeyDownHandler keyDownHandler) {
+		addDomHandler(keyDownHandler, KeyDownEvent.getType());
 	}
 	
 	public Canvas getCanvas() {

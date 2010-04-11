@@ -51,7 +51,7 @@ public class CanvasContext extends Element {
 		return this;
 	}-*/;
 
-	public final native CanvasContext moveTo(int x, int y) /*-{
+	public final native CanvasContext moveTo(double x, double y) /*-{
 		this.moveTo(x, y);
 		return this;
 	}-*/;
@@ -59,7 +59,7 @@ public class CanvasContext extends Element {
 	/**
 	 * 绘制各种线条 Lines
 	 */
-	public final native CanvasContext lineTo(int x, int y) /*-{
+	public final native CanvasContext lineTo(double x, double y) /*-{
 		this.lineTo(x, y);
 		return this;
 	}-*/;
@@ -81,6 +81,11 @@ public class CanvasContext extends Element {
 			_ctx.drawImage(img, ci.@com.craneding.canvas.client.CanvasImage::getX()(), ci.@com.craneding.canvas.client.CanvasImage::getY()());
 			ci.@com.craneding.canvas.client.CanvasImage::onSuccess()(); 
 			}
+		return this;
+	}-*/;
+	
+	public final native CanvasContext drawImage(final com.google.gwt.dom.client.Element elem, int x, int y) /*-{
+		this.drawImage(elem, x, y);
 		return this;
 	}-*/;
 	
@@ -109,7 +114,7 @@ public class CanvasContext extends Element {
 	/**
 	 * Clears the specified area and makes it fully transparent
 	 */
-	public final native CanvasContext clearRect(int x, int y, int w, int h) /*-{
+	public final native CanvasContext clearRect(double x, double y, int w, int h) /*-{
 		this.clearRect(x, y, w, h);
 		return this;
 	}-*/;
@@ -149,7 +154,7 @@ public class CanvasContext extends Element {
 	 * @param x 终点坐标
 	 * @param y 终点坐标
 	 */
-	public final native CanvasContext bezierCurveTo(int cp1x, int cp1y, int cp2x, int cp2y, int x, int y) /*-{
+	public final native CanvasContext bezierCurveTo(double cp1x, double cp1y, double cp2x, double cp2y, double x, double y) /*-{
 		this.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
 		return this;
 	}-*/;
@@ -173,6 +178,16 @@ public class CanvasContext extends Element {
 
 	public final native CanvasContext lineWidth(int w) /*-{
 		this.lineWidth = w;
+		return this;
+	}-*/;
+	
+	public final native CanvasContext save() /*-{
+		this.save();
+		return this;
+	}-*/;
+
+	public final native CanvasContext restore() /*-{
+		this.restore();
 		return this;
 	}-*/;
 }
