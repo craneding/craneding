@@ -34,9 +34,9 @@ h1 {
 }
 
 /** Most GWT widgets already have a style name defined */
-.gwt-DialogBox {
+/**.gwt-DialogBox {
   width: 400px;
-}
+}**/
 
 .dialogVPanel {
   margin: 5px;
@@ -67,4 +67,12 @@ h1 {
 .Canvas-DrawingPanel .dialogContent {
 	background: white;
 	cursor: crosshair;
+}
+
+.Tool{
+	cursor: pointer;
+}
+
+.Tool :HOVER{
+	text-decoration: underline;
 }

@@ -17,5 +17,5 @@ public class Canvas extends Element {
 	public final native CanvasContext getContext(String text) /*-{
 		return this.getContext(text);
 	}-*/;
-
+	
 }

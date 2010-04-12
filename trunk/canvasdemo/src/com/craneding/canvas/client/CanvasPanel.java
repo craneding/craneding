@@ -30,63 +30,71 @@ import com.google.gwt.user.client.ui.Widget;
  * 
  */
 public class CanvasPanel extends Widget {
-	
+
 	public CanvasPanel(Element elem) {
 		setElement(elem);
 		sinkEvents(Event.MOUSEEVENTS | Event.KEYEVENTS);
 	}
-	
+
 	public CanvasPanel() {
 		this(Document.get().createElement("canvas"));
 	}
-	
-	public void addMouseDownHandler(MouseDownHandler downHandler){
+
+	public void addMouseDownHandler(MouseDownHandler downHandler) {
 		addDomHandler(downHandler, MouseDownEvent.getType());
 	}
-	
-	public void addMouseUpHandler(MouseUpHandler upHandler){
+
+	public void addMouseUpHandler(MouseUpHandler upHandler) {
 		addDomHandler(upHandler, MouseUpEvent.getType());
 	}
-	
-	public void addMouseOverHandler(MouseOverHandler overHandler){
+
+	public void addMouseOverHandler(MouseOverHandler overHandler) {
 		addDomHandler(overHandler, MouseOverEvent.getType());
 	}
-	
-	public void addMouseOutHandler(MouseOutHandler outHandler){
+
+	public void addMouseOutHandler(MouseOutHandler outHandler) {
 		addDomHandler(outHandler, MouseOutEvent.getType());
 	}
-	
-	public void addMouseMoveHandler(MouseMoveHandler moveHandler){
+
+	public void addMouseMoveHandler(MouseMoveHandler moveHandler) {
 		addDomHandler(moveHandler, MouseMoveEvent.getType());
 	}
-	
+
 	public void addKeyPressHandler(KeyPressHandler keyPressHandler) {
 		addDomHandler(keyPressHandler, KeyPressEvent.getType());
 	}
-	
+
 	public void addKeyUpHandler(KeyUpHandler keyUpHandler) {
 		addDomHandler(keyUpHandler, KeyUpEvent.getType());
 	}
-	
+
 	public void addKeyDownHandler(KeyDownHandler keyDownHandler) {
 		addDomHandler(keyDownHandler, KeyDownEvent.getType());
 	}
-	
+
 	public Canvas getCanvas() {
 		return (Canvas) getElement();
 	}
-	
+
 	public CanvasContext getContext2D() {
 		return getCanvas().getContext("2d");
 	}
-	
+
 	@Override
 	public void setWidth(String width) {
 		DOM.setElementAttribute(getElement(), "width", width);
 	}
-	
+
 	@Override
 	public void setHeight(String height) {
 		DOM.setElementAttribute(getElement(), "height", height);
 	}
+
+	public static final native boolean haveContext() /*-{
+		var c = $doc.createElement("canvas");
+		if(c.getContext)
+			return true;
+		else
+			return false;
+	}-*/;
 }
