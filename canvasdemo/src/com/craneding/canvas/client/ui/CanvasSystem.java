@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.craneding.canvas.client;
+package com.craneding.canvas.client.ui;
 
 import java.util.HashMap;
 import java.util.Map;

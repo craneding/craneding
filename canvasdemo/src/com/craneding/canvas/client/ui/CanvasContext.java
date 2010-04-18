@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.craneding.canvas.client;
+package com.craneding.canvas.client.ui;
 
 import com.google.gwt.user.client.Element;
 
@@ -76,10 +76,10 @@ public class CanvasContext extends Element {
 	public final native CanvasContext drawImage(final CanvasImage ci) /*-{
 		var _ctx = this;
 		var img = new Image();
-		img.src = ci.@com.craneding.canvas.client.CanvasImage::getSrc()();
+		img.src = ci.@com.craneding.canvas.client.ui.CanvasImage::getSrc()();
 		img.onload = function() { 
-			_ctx.drawImage(img, ci.@com.craneding.canvas.client.CanvasImage::getX()(), ci.@com.craneding.canvas.client.CanvasImage::getY()());
-			ci.@com.craneding.canvas.client.CanvasImage::onSuccess()(); 
+			_ctx.drawImage(img, ci.@com.craneding.canvas.client.ui.CanvasImage::getX()(), ci.@com.craneding.canvas.client.ui.CanvasImage::getY()());
+			ci.@com.craneding.canvas.client.ui.CanvasImage::onSuccess()(); 
 			}
 		return this;
 	}-*/;
@@ -95,10 +95,10 @@ public class CanvasContext extends Element {
 	public final native CanvasContext drawImage(final CanvasImage ci, int width, int height) /*-{
 		var _ctx = this;
 		var img = new Image();
-		img.src = ci.@com.craneding.canvas.client.CanvasImage::getSrc()();
+		img.src = ci.@com.craneding.canvas.client.ui.CanvasImage::getSrc()();
 		img.onload = function() { 
-			_ctx.drawImage(img, ci.@com.craneding.canvas.client.CanvasImage::getX()(), ci.@com.craneding.canvas.client.CanvasImage::getY()(), width, height);
-			ci.@com.craneding.canvas.client.CanvasImage::onSuccess()(); 
+			_ctx.drawImage(img, ci.@com.craneding.canvas.client.ui.CanvasImage::getX()(), ci.@com.craneding.canvas.client.ui.CanvasImage::getY()(), width, height);
+			ci.@com.craneding.canvas.client.ui.CanvasImage::onSuccess()(); 
 			}
 		return this;
 	}-*/;

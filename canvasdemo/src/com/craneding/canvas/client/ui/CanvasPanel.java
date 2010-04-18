@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.craneding.canvas.client;
+package com.craneding.canvas.client.ui;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;

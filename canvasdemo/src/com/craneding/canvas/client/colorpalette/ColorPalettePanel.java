@@ -1,8 +1,10 @@
 /**
  * 
  */
-package com.craneding.canvas.client;
+package com.craneding.canvas.client.colorpalette;
 
+import com.craneding.canvas.client.ui.CanvasContext;
+import com.craneding.canvas.client.ui.CanvasPanel;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
