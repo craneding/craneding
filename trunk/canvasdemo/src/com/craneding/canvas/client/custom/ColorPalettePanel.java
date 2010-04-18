@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.craneding.canvas.client.colorpalette;
+package com.craneding.canvas.client.custom;
 
 import com.craneding.canvas.client.ui.CanvasContext;
 import com.craneding.canvas.client.ui.CanvasPanel;
