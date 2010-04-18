@@ -74,13 +74,13 @@ h1 {
 	text-decoration: underline;
 }
 
-.ColorPaletteBox {
+.ColorBoardBox {
 	height: 114px;
 	width: 185px;
 	border: 1px black dashed;
 }
 
-.ColorPaletteBox .Caption {
+.ColorBoardBox .Caption {
 	height: 20px;
 	width: 185px;
 	cursor: move;
@@ -90,7 +90,7 @@ h1 {
 	background: url("images/win_MT.png") -10px;
 }
 
-.ColorPaletteBox .dialogMiddleCenterInner {
+.ColorBoardBox .dialogMiddleCenterInner {
 	background-color: black;
 	opacity: 0.7;
 	filter: alpha(opacity = 70);
@@ -110,4 +110,11 @@ h1 {
 	height: 18px;
 	line-height: 18px;
 	margin-top: 10px;
+}
+
+.color-board .color-icon {
+	position: relative;
+	width: 9px;
+	height: 9px;
+	background: url("images/coloricon.gif");
 }
