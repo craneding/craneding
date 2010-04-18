@@ -69,7 +69,8 @@ public class CanvasDrawingPanel extends DialogBox implements MouseDownHandler,
 		htmlPanel.add(canvasBox, "canvasroot");
 		htmlPanel.add(canvasTmp, "canvasroot");
 
-		setStyleName("Canvas-DrawingPanel");
+		addStyleName("Canvas-DrawingPanel");
+		setAnimationEnabled(true);
 
 		canvasTmp.addMouseDownHandler(this);
 		canvasTmp.addMouseMoveHandler(this);
@@ -113,6 +114,8 @@ public class CanvasDrawingPanel extends DialogBox implements MouseDownHandler,
 		if (event.getSource() == canvasTmp && down) {
 			int x2 = event.getRelativeX(canvasTmp.getElement());
 			int y2 = event.getRelativeY(canvasTmp.getElement());
+			
+			app.rgba = CanvasSystem.getProperty("rgba");
 			
 			if("pencil".equalsIgnoreCase(CanvasSystem.getProperty("canvasToolName")))
 				pencil.draw(x2, y2);

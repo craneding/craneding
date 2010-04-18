@@ -21,7 +21,7 @@ public class ColorBoardBox extends DialogBox {
 		
 		setWidget(templatePanel);
 		
-		setStyleName("ColorBoardBox");
+		addStyleName("ColorBoardBox");
 	}
 
 }
