@@ -1,6 +1,6 @@
 package com.craneding.canvas.client;
 
-import com.craneding.canvas.client.custom.ColorPalettePanel;
+import com.craneding.canvas.client.custom.ColorBoardBox;
 import com.craneding.canvas.client.ui.CanvasPanel;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.HTML;
@@ -42,7 +42,7 @@ public class Canvasdemo implements EntryPoint {
 		
 		int left = drawingPanel.getAbsoluteLeft() + drawingPanel.getOffsetWidth() - 100;
 		int top = drawingPanel.getAbsoluteTop() + 30;
-		ColorPalettePanel colorPalettePanel = new ColorPalettePanel();
+		ColorBoardBox colorPalettePanel = new ColorBoardBox();
 		colorPalettePanel.setText("调色板");
 		colorPalettePanel.setPopupPosition(left, top);
 		colorPalettePanel.show();

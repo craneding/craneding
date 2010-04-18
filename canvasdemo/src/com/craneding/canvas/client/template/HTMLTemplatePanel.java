@@ -82,6 +82,8 @@ public abstract class HTMLTemplatePanel extends HTMLPanel {
 				   .replaceAll("\n", "")
 				   .replaceAll(".*<[bB][oO][dD][yY]>(.*?)</[bB][oO][dD][yY]>.*", "$1")
 				   ;
+		if(id == null)
+			return text;
 		
 		final Element tmpElem = DOM.createDiv();
 		tmpElem.setInnerHTML(text);

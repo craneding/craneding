@@ -14,7 +14,7 @@ import com.google.gwt.user.client.ui.HTML;
  * 
  * @author 丁丁
  */
-public class ColorPalettePanel extends DialogBox {
+public class ColorBoardBox extends DialogBox {
 	final FlowPanel flowPanel = new FlowPanel();
 	final CanvasPanel redCanvas = new CanvasPanel();
 	final CanvasPanel greenCanvas = new CanvasPanel();
@@ -27,7 +27,7 @@ public class ColorPalettePanel extends DialogBox {
 	final String width = "226px";
 	final int height = 18;
 
-	public ColorPalettePanel() {
+	public ColorBoardBox() {
 		super(false, false);
 
 		int r = 255, g = 128, b = 128, a = 1;
@@ -58,7 +58,8 @@ public class ColorPalettePanel extends DialogBox {
 		DOM.setStyleAttribute(blueMove.getElement(), "left", "128px");
 		*/
 
-		setWidget(flowPanel);
+//		setWidget(flowPanel);
+		setWidget(new ColorBoardTemplatePanel());
 		setStyleName("ColorPaletteBox");
 
 		draw(redCanvas.getContext2D(), r, g, b, a);

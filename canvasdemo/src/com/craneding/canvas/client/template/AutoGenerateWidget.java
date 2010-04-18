@@ -3,6 +3,7 @@
  */
 package com.craneding.canvas.client.template;
 
+import com.craneding.canvas.client.ui.CanvasPanel;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.Button;
@@ -58,6 +59,10 @@ public class AutoGenerateWidget {
 		// TextBox
 		if(isInput)
 			return new AutoTextBox(elem);
+		
+		// Canvas
+		if("canvas".equalsIgnoreCase(tagName)) 
+			return new CanvasPanel(elem);
 		
 		// HTML
 		return new AutoHTML(elem);
