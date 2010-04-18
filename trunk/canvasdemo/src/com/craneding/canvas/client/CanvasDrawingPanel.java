@@ -3,10 +3,13 @@
  */
 package com.craneding.canvas.client;
 
-import com.craneding.canvas.client.drawtools.Ellipse;
-import com.craneding.canvas.client.drawtools.Pencil;
-import com.craneding.canvas.client.drawtools.Rectangle;
-import com.craneding.canvas.client.drawtools.CanvasTools.CanvasApp;
+import com.craneding.canvas.client.tools.Ellipse;
+import com.craneding.canvas.client.tools.Pencil;
+import com.craneding.canvas.client.tools.Rectangle;
+import com.craneding.canvas.client.tools.CanvasTools.CanvasApp;
+import com.craneding.canvas.client.ui.CanvasContext;
+import com.craneding.canvas.client.ui.CanvasPanel;
+import com.craneding.canvas.client.ui.CanvasSystem;
 import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyDownHandler;
 import com.google.gwt.event.dom.client.KeyUpEvent;

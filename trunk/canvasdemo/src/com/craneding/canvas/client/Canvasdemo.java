@@ -1,5 +1,7 @@
 package com.craneding.canvas.client;
 
+import com.craneding.canvas.client.colorpalette.ColorPalettePanel;
+import com.craneding.canvas.client.ui.CanvasPanel;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PopupPanel;

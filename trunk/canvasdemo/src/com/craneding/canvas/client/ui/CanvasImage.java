@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.craneding.canvas.client;
+package com.craneding.canvas.client.ui;
 
 /**
  * @author 丁丁
