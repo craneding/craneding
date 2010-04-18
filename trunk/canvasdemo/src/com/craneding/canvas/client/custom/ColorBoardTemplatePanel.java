@@ -6,6 +6,7 @@ package com.craneding.canvas.client.custom;
 import com.craneding.canvas.client.template.HTMLTemplatePanel;
 import com.craneding.canvas.client.ui.CanvasContext;
 import com.craneding.canvas.client.ui.CanvasPanel;
+import com.craneding.canvas.client.ui.CanvasSystem;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
@@ -139,6 +140,11 @@ public class ColorBoardTemplatePanel extends HTMLTemplatePanel implements
 			copy.alpha = this.alpha;
 			return copy;
 		}
+		
+		@Override
+		public String toString() {
+			return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+		}
 	}
 
 	@Override
@@ -157,6 +163,8 @@ public class ColorBoardTemplatePanel extends HTMLTemplatePanel implements
 		} else if(source == blueCanvas) {
 			selectBlue(x1, x2);
 		}
+		
+		CanvasSystem.setProperty("rgba", rgba.toString());
 	}
 
 	@Override
@@ -187,6 +195,8 @@ public class ColorBoardTemplatePanel extends HTMLTemplatePanel implements
 			} else if(source == blueCanvas) {
 				selectBlue(x1, x2);
 			}
+			
+			CanvasSystem.setProperty("rgba", rgba.toString());
 		}
 	}
 

@@ -26,6 +26,7 @@ public class Rectangle extends CanvasTools {
 		}
 
 		app.ctx.clearRect(0, 0, app.width, app.height);
+		app.ctx.strokeStyle(app.rgba);
 		app.ctx.beginPath();
 		app.ctx.strokeRect(x1, y1, w, h);
 		app.ctx.closePath();

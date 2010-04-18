@@ -25,6 +25,7 @@ public class Pencil extends CanvasTools {
 	}
 
 	public Pencil draw(int x2, int y2) {
+		app.ctx.strokeStyle(app.rgba);
 		app.ctx.beginPath();
 		app.ctx.moveTo(x1, y1);
 		app.ctx.lineTo(x1 = x2, y1 = y2);

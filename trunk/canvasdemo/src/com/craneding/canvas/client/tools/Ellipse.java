@@ -50,6 +50,7 @@ public class Ellipse extends CanvasTools {
 		w2 = (int) (w2 * K);
 		h2 = (int) (h2 * K);
 
+		app.ctx.strokeStyle(app.rgba);
 		app.ctx.beginPath();
 		app.ctx.moveTo(ox, minY);// 起始点
 

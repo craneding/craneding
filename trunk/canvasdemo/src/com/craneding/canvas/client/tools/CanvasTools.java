@@ -16,6 +16,7 @@ public abstract class CanvasTools {
 		public int width;
 		public int height;
 		public boolean ctrl;
+		public String rgba;
 
 		public CanvasApp(CanvasContext ctx, int width, int height) {
 			this.ctx = ctx;
@@ -31,6 +32,7 @@ public abstract class CanvasTools {
 	}
 
 	public CanvasTools LineWidth(int lineWidth) {
+		app.ctx.fillStyle(app.rgba);
 		app.ctx.lineWidth(lineWidth);
 		return this;
 	}

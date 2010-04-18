@@ -1,6 +1,7 @@
 package com.craneding.canvas.client;
 
 import com.craneding.canvas.client.custom.ColorBoardBox;
+import com.craneding.canvas.client.custom.ToolsBox;
 import com.craneding.canvas.client.ui.CanvasPanel;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.HTML;
@@ -35,10 +36,9 @@ public class Canvasdemo implements EntryPoint {
 		drawingPanel.setSize("732px", "500px");
 		drawingPanel.center();
 
-		CanvasMenuPanel canvasMenuPanel = new CanvasMenuPanel();
-		canvasMenuPanel.setPopupPosition(drawingPanel.getAbsoluteLeft() - 100,
-				drawingPanel.getAbsoluteTop() + 30);
-		canvasMenuPanel.show();
+		ToolsBox toolsBox = new ToolsBox();
+		toolsBox.setPopupPosition(drawingPanel.getAbsoluteLeft() - 100, drawingPanel.getAbsoluteTop() + 30);
+		toolsBox.show();
 		
 		int left = drawingPanel.getAbsoluteLeft() + drawingPanel.getOffsetWidth() - 100;
 		int top = drawingPanel.getAbsoluteTop() + 30;
