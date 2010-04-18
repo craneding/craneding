@@ -37,6 +37,13 @@ public class Canvasdemo implements EntryPoint {
 		canvasMenuPanel.setPopupPosition(drawingPanel.getAbsoluteLeft() - 100,
 				drawingPanel.getAbsoluteTop() + 30);
 		canvasMenuPanel.show();
+		
+		int left = drawingPanel.getAbsoluteLeft() + drawingPanel.getOffsetWidth() - 100;
+		int top = drawingPanel.getAbsoluteTop() + 30;
+		ColorPalettePanel colorPalettePanel = new ColorPalettePanel();
+		colorPalettePanel.setText("调色板");
+		colorPalettePanel.setPopupPosition(left, top);
+		colorPalettePanel.show();
 	}
 
 }
