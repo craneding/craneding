@@ -31,7 +31,7 @@ public class TestEasyBean {
 	}
 
 	protected static void test3(TestDataSource dataSource) {
-		EasyBean easyBean = new EasyBean(dataSource);
+		EasyBean easyBean = EasyBean.newInstance(dataSource);
 		
 		int maxCount = 5;
 		
