@@ -24,6 +24,10 @@ public final class EasyBean extends AbstractEasyBean {
 	private String sql;
 	protected final List<Object> parmerters = new ArrayList<Object>();
 
+	public static EasyBean newInstance(DataSource dataSource){
+		return new EasyBean(dataSource);
+	}
+	
 	public EasyBean() {
 	}
 
