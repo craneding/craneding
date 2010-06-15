@@ -1,0 +1,346 @@
+11-28 23:21:37 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+drop table user [42102-124]
+11-28 23:22:10 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "IF[*] USER EXISTS DROP TABLE USER "; expected "INSERT, {"; SQL statement:
+if user exists drop table user [42001-124]
+11-28 23:22:35 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "IF[*] EXISTS DROP TABLE USER "; expected "INSERT, {"; SQL statement:
+if exists drop table user [42001-124]
+11-28 23:24:52 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE USER IF EXISTS USER[*] "; SQL statement:
+drop table user if exists user [42000-124]
+11-29 16:35:46 jdbc[3]: SQLException
+org.h2.jdbc.JdbcSQLException: Invalid value "0" for parameter "columnIndex" [90008-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getInvalidValueException(Message.java:178)
+	at org.h2.jdbc.JdbcResultSet.checkColumnIndex(JdbcResultSet.java:2993)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3021)
+	at org.h2.jdbc.JdbcResultSet.getObject(JdbcResultSet.java:460)
+	at com.craneding.h2.jdbc.EasyBean.select(EasyBean.java:80)
+	at com.craneding.h2.H2Demo$1.execute(H2Demo.java:143)
+	at com.craneding.h2.jdbc.EasyBean.transaction(EasyBean.java:49)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:139)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:90)
+11-29 16:35:46 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:33)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:138)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:90)
+11-29 16:36:46 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:33)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:138)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:90)
+11-29 16:52:46 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:36)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:138)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:90)
+11-29 17:16:06 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:49)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:143)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:92)
+11-29 17:17:22 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:49)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:143)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:92)
+11-29 17:23:36 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:49)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:143)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:92)
+11-29 17:23:56 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:49)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:143)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:92)
+11-29 17:25:16 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:49)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:143)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:92)
+11-29 17:47:10 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:31)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:149)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:93)
+11-29 17:48:26 jdbc[3]: Connection not closed
+java.lang.Exception: Stack Trace
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:121)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:94)
+	at org.h2.Driver.connect(Driver.java:58)
+	at java.sql.DriverManager.getConnection(DriverManager.java:582)
+	at java.sql.DriverManager.getConnection(DriverManager.java:185)
+	at com.craneding.h2.jdbc.EasyBean.open(EasyBean.java:31)
+	at com.craneding.h2.H2Demo.demo(H2Demo.java:149)
+	at com.craneding.h2.H2Demo.main(H2Demo.java:93)
+11-29 18:06:42 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Value too long for column "USERNAME VARCHAR2(25) NOT NULL": "'crane.ding@qq.com---------------------------------------------------------------------------------------------------' (116)"; SQL statement:
+insert into user values(6,'crane.ding@qq.com---------------------------------------------------------------------------------------------------') [90005-124]
+06-15 13:20:37 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "DECIMAL" not found [42122-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getSQLException(Message.java:75)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:2987)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3038)
+	at org.h2.jdbc.JdbcResultSet.getObject(JdbcResultSet.java:479)
+	at com.easybean.EasyQuery.find(EasyQuery.java:65)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:29)
+06-15 13:21:29 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "DECIMAL" not found [42122-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getSQLException(Message.java:75)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:2987)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3038)
+	at org.h2.jdbc.JdbcResultSet.getObject(JdbcResultSet.java:479)
+	at com.easybean.EasyQuery.find(EasyQuery.java:65)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:29)
+06-15 13:21:54 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "DECIMAL" not found [42122-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getSQLException(Message.java:75)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:2987)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3038)
+	at org.h2.jdbc.JdbcResultSet.getObject(JdbcResultSet.java:479)
+	at com.easybean.EasyQuery.find(EasyQuery.java:65)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:29)
+06-15 13:22:03 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Invalid value "0" for parameter "columnIndex" [90008-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getInvalidValueException(Message.java:178)
+	at org.h2.jdbc.JdbcResultSetMetaData.checkColumnIndex(JdbcResultSetMetaData.java:427)
+	at org.h2.jdbc.JdbcResultSetMetaData.getColumnName(JdbcResultSetMetaData.java:83)
+	at com.easybean.EasyQuery.find(EasyQuery.java:65)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:29)
+06-15 13:22:43 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Invalid value "0" for parameter "columnIndex" [90008-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getInvalidValueException(Message.java:178)
+	at org.h2.jdbc.JdbcResultSetMetaData.checkColumnIndex(JdbcResultSetMetaData.java:427)
+	at org.h2.jdbc.JdbcResultSetMetaData.getColumnLabel(JdbcResultSetMetaData.java:66)
+	at com.easybean.EasyQuery.find(EasyQuery.java:65)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:29)
+06-15 13:23:07 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Invalid value "0" for parameter "columnIndex" [90008-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getInvalidValueException(Message.java:178)
+	at org.h2.jdbc.JdbcResultSetMetaData.checkColumnIndex(JdbcResultSetMetaData.java:427)
+	at org.h2.jdbc.JdbcResultSetMetaData.getColumnLabel(JdbcResultSetMetaData.java:66)
+	at com.easybean.EasyQuery.find(EasyQuery.java:67)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:29)
+06-15 13:24:52 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT ID, USERNAME FROM USER WHEREUSERNAME =[*] :USERNAME "; SQL statement:
+select id, username from user whereusername = :username [42000-124]
+06-15 13:25:02 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT ID, USERNAME FROM USER WHEREUSERNAME[*] =:USERNAME "; SQL statement:
+select id, username from user whereusername =:username [42000-124]
+06-15 13:25:12 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT ID, USERNAME FROM USER WHEREUSERNAME[*] =:USERNAME "; SQL statement:
+select id, username from user whereusername =:username [42000-124]
+06-15 13:26:32 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT ID, USERNAME FROM USER U WHEREU[*].USERNAME=:USERNAME "; SQL statement:
+select id, username from user u whereu.username=:username [42000-124]
+06-15 13:26:57 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT ID, USERNAME FROM USER U WHERE U.USERNAME[*]=:USERNAME "; SQL statement:
+select id, username from user u where u.username=:username [42000-124]
+06-15 13:28:27 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT ID, USERNAME FROM USER U WHERE U.USERNAME = :[*]A "; expected "ALL, ANY, SOME, SELECT, FROM"; SQL statement:
+select id, username from user u where u.username = :A [42001-124]
+06-15 13:28:38 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Parameter "#1" is not set; SQL statement:
+select id, username from user u where u.username = ? [90012-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getSQLException(Message.java:75)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:75)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:157)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:81)
+	at org.h2.command.Command.executeQueryLocal(Command.java:142)
+	at org.h2.command.Command.executeQuery(Command.java:123)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:98)
+	at com.easybean.EasyQuery.find(EasyQuery.java:63)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:31)
+06-15 13:28:55 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Column "A" not found; SQL statement:
+select id, username from user u where u.username = #A [42122-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getSQLException(Message.java:75)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:128)
+	at org.h2.expression.Comparison.optimize(Comparison.java:150)
+	at org.h2.command.dml.Select.prepare(Select.java:718)
+	at org.h2.command.Parser.prepareCommand(Parser.java:236)
+	at org.h2.engine.Session.prepareLocal(Session.java:416)
+	at org.h2.engine.Session.prepareCommand(Session.java:377)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1053)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcCallableStatement.<init>(JdbcCallableStatement.java:40)
+	at org.h2.jdbc.JdbcConnection.prepareCall(JdbcConnection.java:800)
+	at com.easybean.EasySql.prepareCall(EasySql.java:27)
+	at com.easybean.EasyQuery.find(EasyQuery.java:60)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:31)
+06-15 13:29:10 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT ID, USERNAME FROM USER U WHERE U.USERNAME :[*]A "; SQL statement:
+select id, username from user u where u.username :A [42000-124]
+06-15 13:29:25 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT ID, USERNAME FROM USER U WHERE U.USERNAME = :[*]A "; expected "ALL, ANY, SOME, SELECT, FROM"; SQL statement:
+select id, username from user u where u.username = :A [42001-124]
+06-15 13:43:28 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Parameter "#1" is not set; SQL statement:
+select id, username from user u where u.username = ? [90012-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getSQLException(Message.java:75)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:75)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:157)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:81)
+	at org.h2.command.Command.executeQueryLocal(Command.java:142)
+	at org.h2.command.Command.executeQuery(Command.java:123)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:98)
+	at com.easybean.EasyQuery.query(EasyQuery.java:41)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:29)
+06-15 15:09:21 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Invalid value "2" for parameter "parameterIndex" [90008-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getInvalidValueException(Message.java:178)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1228)
+	at org.h2.jdbc.JdbcPreparedStatement.setObject(JdbcPreparedStatement.java:412)
+	at com.easybean.EasyBean.prepareCall(EasyBean.java:154)
+	at com.easybean.EasyBean.findList(EasyBean.java:57)
+	at com.easybean.EasyBean.findUnique(EasyBean.java:49)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:36)
+06-15 15:09:43 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Invalid value "2" for parameter "parameterIndex" [90008-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getInvalidValueException(Message.java:178)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1228)
+	at org.h2.jdbc.JdbcPreparedStatement.setObject(JdbcPreparedStatement.java:412)
+	at com.easybean.EasyBean.prepareCall(EasyBean.java:154)
+	at com.easybean.EasyBean.findList(EasyBean.java:57)
+	at com.easybean.EasyBean.findUnique(EasyBean.java:49)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:36)
+06-15 15:11:00 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Invalid value "2" for parameter "parameterIndex" [90008-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getInvalidValueException(Message.java:178)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1228)
+	at org.h2.jdbc.JdbcPreparedStatement.setObject(JdbcPreparedStatement.java:412)
+	at com.easybean.EasyBean.prepareCall(EasyBean.java:154)
+	at com.easybean.EasyBean.findList(EasyBean.java:57)
+	at com.easybean.EasyBean.findUnique(EasyBean.java:49)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:36)
+06-15 15:11:54 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Invalid value "2" for parameter "parameterIndex" [90008-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getInvalidValueException(Message.java:178)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1228)
+	at org.h2.jdbc.JdbcPreparedStatement.setObject(JdbcPreparedStatement.java:412)
+	at com.easybean.EasyBean.prepareCall(EasyBean.java:154)
+	at com.easybean.EasyBean.findList(EasyBean.java:57)
+	at com.easybean.EasyBean.findUnique(EasyBean.java:49)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:36)
+06-15 15:18:17 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT USER[*](USERNAME) VALUES(?) "; expected "INTO"; SQL statement:
+insert user(username) values(?) [42001-124]
+06-15 15:20:48 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "ID"; SQL statement:
+insert into user (username) values(?) [90006-124]
+06-15 15:23:03 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "ID"; SQL statement:
+insert into user (username) values(?) [90006-124]
+06-15 15:28:22 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Invalid value "2" for parameter "parameterIndex" [90008-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getInvalidValueException(Message.java:178)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1228)
+	at org.h2.jdbc.JdbcPreparedStatement.setObject(JdbcPreparedStatement.java:412)
+	at com.easybean.EasyBean.prepareCall(EasyBean.java:154)
+	at com.easybean.EasyBean.save(EasyBean.java:124)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:36)
+06-15 15:33:56 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "ID"; SQL statement:
+insert into user (id, username) values(?, ?) [90006-124]
+06-15 15:34:34 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: NULL not allowed for column "ID"; SQL statement:
+insert into user (id, username) values(?, ?) [90006-124]
+06-15 15:55:14 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * USER[*] U "; SQL statement:
+select * user u [42000-124]
+06-15 15:58:16 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Invalid value "1" for parameter "resultSetType" [90008-124]
+	at org.h2.message.Message.getSQLException(Message.java:111)
+	at org.h2.message.Message.getSQLException(Message.java:122)
+	at org.h2.message.Message.getInvalidValueException(Message.java:178)
+	at org.h2.jdbc.JdbcConnection.checkTypeConcurrency(JdbcConnection.java:1277)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:583)
+	at com.easybean.EasyBean.prepareCall(EasyBean.java:157)
+	at com.easybean.EasyBean.findListMap(EasyBean.java:93)
+	at com.easybean.EasyBean.findUniqueMap(EasyBean.java:85)
+	at com.easybean.test.TestEasyBean.test3(TestEasyBean.java:38)
+	at com.easybean.test.TestEasyBean.main(TestEasyBean.java:30)
+06-15 16:20:27 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: No data is available [2000-124]
+06-15 16:25:24 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: No data is available [2000-124]
+06-15 16:25:42 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: No data is available [2000-124]
