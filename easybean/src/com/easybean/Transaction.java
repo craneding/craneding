@@ -4,6 +4,7 @@
 package com.easybean;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * @author ¶¡¶¡
@@ -15,14 +16,18 @@ public class Transaction {
 	 * The status of the transaction.
 	 */
 	boolean active = true;
+	
+	boolean oldAutoCommit = true;
 
 	/**
 	 * The underlying Connection.
 	 */
 	final Connection connection;
 
-	public Transaction(Connection connection) {
+	public Transaction(Connection connection) throws SQLException {
 		this.connection = connection;
+		
+		oldAutoCommit = connection.getAutoCommit();
 	}
 
 	public Connection getConnection() {
@@ -59,5 +64,13 @@ public class Transaction {
 		} catch (Exception e) {
 			throw new EasyBeanException(e);
 		}
+	}
+	
+	public boolean isOldAutoCommit() {
+		return oldAutoCommit;
+	}
+
+	public void setOldAutoCommit(boolean oldAutoCommit) {
+		this.oldAutoCommit = oldAutoCommit;
 	}
 }

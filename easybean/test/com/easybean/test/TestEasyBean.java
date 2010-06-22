@@ -14,46 +14,59 @@ import com.easybean.EasyBean;
  *
  */
 public class TestEasyBean {
-
-	public static void main(String[] args) {
-		org.h2.Driver.load();
-		
-		TestDataSource dataSource = new TestDataSource();
+	static final TestDataSource dataSource = new TestDataSource();
+	
+	static {
 		dataSource.setUrl("jdbc:h2:database/h2demo");
 		dataSource.setUsername("craneding");
 		dataSource.setPassword("123456");
-		
-//		test1(dataSource);
-//	
-//		test2(dataSource);
-		
-		test3(dataSource);
 	}
-
-	protected static void test3(TestDataSource dataSource) {
-		EasyBean easyBean = EasyBean.newInstance(dataSource);
+	
+	static final EasyBean easyBean = EasyBean.newInstance(dataSource);
+	
+	public static void main(String[] args) {
+		org.h2.Driver.load();
 		
-		int maxCount = 5;
-		
-		long count = (Long)easyBean
-			.sql("select count(*) as C from user")
-			.findUniqueMap()
-			.get("C");
-		System.out.println(count);
-		
-		long page = (count % maxCount == 0) ? (count / maxCount) : (count / maxCount + 1);
-		
-		int startIndex = 1;
-		for (int i = 1; i <= page; i++) {
-			List<User> findList = easyBean
-				.sql("select * from user u order by u.id")
-				.findList(User.class, startIndex, maxCount);
-			System.out.println(findList);
-			
-			startIndex += maxCount;
+		for (int i = 0; i < 10; i++) {
+			new Thread(){
+				@Override
+				public void run() {
+					test3();
+				}
+			}.start();
 		}
 		
-		easyBean.close();
+		test3();
+	}
+
+	protected static void test3() {
+		try {
+			easyBean.beginTransaction();
+			
+			int maxCount = 5;
+			
+			long count = (Long)easyBean
+				.sql("select count(*) as C from user")
+				.findUniqueMap()
+				.get("C");
+			System.out.println(count);
+			
+			long page = (count % maxCount == 0) ? (count / maxCount) : (count / maxCount + 1);
+			
+			int startIndex = 1;
+			for (int i = 1; i <= page; i++) {
+				List<User> findList = easyBean
+					.sql("select * from user u order by u.id")
+					.findList(User.class, startIndex, maxCount);
+				System.out.println(findList);
+				
+				startIndex += maxCount;
+			}
+			
+			easyBean.commitTransaction();
+		} finally {
+			easyBean.endTransaction();
+		}
 	}
 
 	protected static void test2(TestDataSource dataSource) {

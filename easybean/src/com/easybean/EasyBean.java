@@ -21,9 +21,13 @@ import com.easybean.BeansUtil.BeansInfo;
  */
 public final class EasyBean extends AbstractEasyBean {
 
-	private String sql;
-	protected final List<Object> parmerters = new ArrayList<Object>();
-
+	class LocalInfo {
+		String sql;
+		List<Object> parmerters = new ArrayList<Object>();
+	}
+	
+	protected ThreadLocal<LocalInfo> _localInfo = new ThreadLocal<LocalInfo>();
+	
 	public static EasyBean newInstance(DataSource dataSource){
 		return new EasyBean(dataSource);
 	}
@@ -36,17 +40,25 @@ public final class EasyBean extends AbstractEasyBean {
 	}
 
 	public EasyBean sql(String sql){
-		this.sql = sql;
+		currentLocalInfo().get().sql = sql;
 		
 		return this;
 	}
 
 	public EasyBean addParameters(Object... parmerters) {
 		for (Object o : parmerters) {
-			this.parmerters.add(o);
+			currentLocalInfo().get().parmerters.add(o);
 		}
 		
 		return this;
+	}
+
+	private ThreadLocal<LocalInfo> currentLocalInfo() {
+		if(_localInfo.get() == null) {
+			_localInfo.set(new LocalInfo());
+		}
+		
+		return _localInfo;
 	}
 	
 	public <T> T findUnique(Class<T> clazz) {
@@ -58,10 +70,11 @@ public final class EasyBean extends AbstractEasyBean {
 	public <T> List<T> findList(Class<T> clazz) {
 		ArrayList<T> results = new ArrayList<T>();
 		
-		PreparedStatement prepareCall = prepareCall(sql);
+		PreparedStatement prepareCall = prepareCall(currentLocalInfo().get().sql);
 		
+		ResultSet rs = null;
 		try {
-			ResultSet rs = prepareCall.executeQuery();
+			rs = prepareCall.executeQuery();
 			ResultSetMetaData metaData = rs.getMetaData();
 			Map<String, BeansInfo> beansInfo = BeansUtil.getBeansInfo(clazz);
 			
@@ -80,6 +93,8 @@ public final class EasyBean extends AbstractEasyBean {
 			}
 		} catch (Exception e) {
 			throw new EasyBeanException(e);
+		} finally {
+			autoClose(prepareCall, rs);
 		}
 		
 		return results;
@@ -88,10 +103,11 @@ public final class EasyBean extends AbstractEasyBean {
 	public <T> List<T> findList(Class<T> clazz, int startIndex, int maxCount) {
 		ArrayList<T> results = new ArrayList<T>();
 		
-		PreparedStatement prepareCall = prepareCall(sql);
+		PreparedStatement prepareCall = prepareCall(currentLocalInfo().get().sql);
 		
+		ResultSet rs = null;
 		try {
-			ResultSet rs = prepareCall.executeQuery();
+			rs = prepareCall.executeQuery();
 			ResultSetMetaData metaData = rs.getMetaData();
 			Map<String, BeansInfo> beansInfo = BeansUtil.getBeansInfo(clazz);
 			
@@ -116,6 +132,8 @@ public final class EasyBean extends AbstractEasyBean {
 			}
 		} catch (Exception e) {
 			throw new EasyBeanException(e);
+		} finally {
+			autoClose(prepareCall, rs);
 		}
 		
 		return results;
@@ -130,10 +148,11 @@ public final class EasyBean extends AbstractEasyBean {
 	public List<Map<String, Object>> findListMap() {
 		ArrayList<Map<String, Object>> results = new ArrayList<Map<String,Object>>();
 		
-		PreparedStatement prepareCall = prepareCall(sql);
+		PreparedStatement prepareCall = prepareCall(currentLocalInfo().get().sql);
 		
+		ResultSet rs = null;
 		try {
-			ResultSet rs = prepareCall.executeQuery();
+			rs = prepareCall.executeQuery();
 			ResultSetMetaData metaData = rs.getMetaData();
 			
 			while(rs.next()) {
@@ -149,6 +168,8 @@ public final class EasyBean extends AbstractEasyBean {
 			}
 		} catch (SQLException e) {
 			throw new EasyBeanException(e);
+		} finally {
+			autoClose(prepareCall, rs);
 		}
 		
 		return results;
@@ -157,10 +178,11 @@ public final class EasyBean extends AbstractEasyBean {
 	public List<Map<String, Object>> findListMap(int startIndex, int maxCount) {
 		ArrayList<Map<String, Object>> results = new ArrayList<Map<String,Object>>();
 		
-		PreparedStatement prepareCall = prepareCall(sql);
+		PreparedStatement prepareCall = prepareCall(currentLocalInfo().get().sql);
 		
+		ResultSet rs = null;
 		try {
-			ResultSet rs = prepareCall.executeQuery();
+			rs = prepareCall.executeQuery();
 			ResultSetMetaData metaData = rs.getMetaData();
 			
 			rs.first();
@@ -182,42 +204,50 @@ public final class EasyBean extends AbstractEasyBean {
 			}
 		} catch (SQLException e) {
 			throw new EasyBeanException(e);
+		} finally {
+			autoClose(prepareCall, rs);
 		}
 		
 		return results;
 	}
 	
 	public EasyBean update(){
-		PreparedStatement prepareCall = prepareCall(sql);
+		PreparedStatement prepareCall = prepareCall(currentLocalInfo().get().sql);
 		
 		try {
 			prepareCall.executeUpdate();
 		} catch (SQLException e) {
 			throw new EasyBeanException(e);
+		} finally {
+			autoClose(prepareCall, null);
 		}
 		
 		return this;
 	}
 	
 	public EasyBean save(){
-		PreparedStatement prepareCall = prepareCall(sql);
+		PreparedStatement prepareCall = prepareCall(currentLocalInfo().get().sql);
 		
 		try {
 			prepareCall.execute();
 		} catch (SQLException e) {
 			throw new EasyBeanException(e);
+		} finally {
+			autoClose(prepareCall, null);
 		}
 		
 		return this;
 	}
 	
 	public EasyBean delete() {
-		PreparedStatement prepareCall = prepareCall(sql);
+		PreparedStatement prepareCall = prepareCall(currentLocalInfo().get().sql);
 		
 		try {
 			prepareCall.execute();
 		} catch (SQLException e) {
 			throw new EasyBeanException(e);
+		} finally {
+			autoClose(prepareCall, null);
 		}
 		
 		return this;
@@ -226,6 +256,7 @@ public final class EasyBean extends AbstractEasyBean {
 	protected PreparedStatement prepareCall(String sql){
 		PreparedStatement _call = null;
 		
+		List<Object> parmerters = currentLocalInfo().get().parmerters;
 		try {
 			_call = currentConnection().prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			
@@ -238,5 +269,28 @@ public final class EasyBean extends AbstractEasyBean {
 		}
 		
 		return _call;
+	}
+	
+	private void autoClose(PreparedStatement prepareCall, ResultSet rs) {
+		if (rs != null)
+			try {
+				rs.close();
+			} catch (SQLException e) {
+			}
+
+		if (prepareCall != null)
+			try {
+				prepareCall.close();
+			} catch (SQLException e) {
+			}
+		
+		try {
+			if(currentConnection().getAutoCommit()) {
+				close();
+			}
+		} catch (SQLException e) {
+		}
+		
+		currentLocalInfo().remove();
 	}
 }
