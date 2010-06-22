@@ -32,6 +32,7 @@ public abstract class AbstractEasyBean {
 		Transaction transaction = currentTransaction();
 		
 		try {
+			transaction.oldAutoCommit = transaction.connection.getAutoCommit();
 			transaction.connection.setAutoCommit(false);
 		} catch (SQLException e) {
 			throw new EasyBeanException(e);
@@ -49,9 +50,8 @@ public abstract class AbstractEasyBean {
 			} finally {
 				close();
 			}
-		}
-		
-		close();
+		} else
+			close();
 	}
 
 	public void commitTransaction(){
@@ -66,9 +66,12 @@ public abstract class AbstractEasyBean {
 		}
 	}
 	
-	public void close() {
+	protected void close() {
 		try {
+			currentTransaction().connection.setAutoCommit(currentTransaction().oldAutoCommit);
 			currentTransaction().close();
+		} catch (SQLException e) {
+			throw new EasyBeanException(e);
 		} finally {
 			local.remove();
 		}
